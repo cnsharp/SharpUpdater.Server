@@ -1,11 +1,31 @@
-# NuGet.Server
+# SharpUpdater.Server
 
-The home of the NuGet.server package, a lightweight standalone NuGet server
+The home of the SharpUpdater.server package, a lightweight standalone SharpUpdater server
 
-## Feedback
+# Client Tools
+## Visual Studio extension 
+[VSIX Install](https://visualstudiogallery.msdn.microsoft.com/7235fee1-a830-466b-b7be-022dc6f98aa9)
+[Source](https://github.com/cnsharp/SharpUpdater/tree/master/src/VSIX/PackingTool)
 
-If you're having trouble with the NuGet.org Website or NuGet.Server, file a bug on the [NuGet Gallery Issue Tracker](https://github.com/nuget/NuGetGallery/issues). 
+## Updater.exe
+[Source](https://github.com/cnsharp/SharpUpdater/tree/master/src/Client/SharpUpdater)
 
-If you're having trouble with the NuGet client tools (the Visual Studio extension, NuGet.exe command line tool, etc.), file a bug on [NuGet Home](https://github.com/nuget/home/issues).
+# Files changed
 
-Check out the [contributing](http://docs.nuget.org/contribute) page to see the best places to log issues and start discussions. The [NuGet Home](https://github.com/NuGet/Home) repo provides an overview of the different NuGet projects available.
+-- package file extension
+*.sp
+
+-- extarcted from NuGet.Core
+
+Core\ManifestExtensions.cs
+Core\MemoryCache.cs
+Core\UriUtility.cs
+Core\ZipPackageAssemblyReference.cs
+Core\ZipPackageFile.cs
+Infrastructure\FileSystemExtensions.cs
+
+
+-- customized
+
+Core\SharpPackage.cs
+Infrastructure\SharpExpandedPackageRepository.cs
