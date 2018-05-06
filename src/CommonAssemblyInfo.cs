@@ -5,12 +5,13 @@ using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyCompany(".NET Foundation")]
-[assembly: AssemblyProduct("NuGet")]
-[assembly: AssemblyCopyright("\x00a9 .NET Foundation. All rights reserved.")]
+[assembly: AssemblyCompany("CnSharp Studio")]
+[assembly: AssemblyProduct("SharpUpdater.Server")]
+[assembly: AssemblyCopyright("\x00a9 CnSharp Studio. All rights reserved.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyTrademark("")]
 
 [assembly: ComVisible(false)]
 
 [assembly: NeutralResourcesLanguage("en-US")]
+[assembly: AssemblyVersion("3.1.2")]

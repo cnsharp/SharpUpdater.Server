@@ -25,7 +25,7 @@ namespace NuGet.Server.V2.Controllers
     [NuGetODataControllerConfiguration]
     public abstract class NuGetODataController : ODataController
     {
-        const string ApiKeyHeader = "X-NUGET-APIKEY";
+        const string ApiKeyHeader = "X-SHARPUPDATER-APIKEY";
 
         protected int _maxPageSize = 25;
 

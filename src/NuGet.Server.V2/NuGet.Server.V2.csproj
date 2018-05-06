@@ -110,12 +110,6 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\NuGet.Server.Core\NuGet.Server.Core.csproj">
-      <Project>{1fe62f82-927a-4437-91f1-1a965e51682b}</Project>
-      <Name>NuGet.Server.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\build\sign.targets" Condition="Exists('..\..\build\sign.targets')" />
 </Project>

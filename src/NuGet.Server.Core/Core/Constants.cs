@@ -5,5 +5,16 @@ namespace NuGet.Server.Core
     public static class Constants
     {
         public const string HashAlgorithm = "SHA512";
+
+        public const string PackageExtension = ".sp";
+
+        public const string PackageFilter = "*.sp";
+
+        public const string UrlSegment = "sp";
+
+        /// <summary>
+        /// Represents the ".sp.sha512" extension.
+        /// </summary>
+        public static readonly string HashFileExtension = PackageExtension + ".sha512";
     }
 }

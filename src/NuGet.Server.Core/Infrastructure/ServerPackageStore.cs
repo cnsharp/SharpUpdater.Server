@@ -197,7 +197,7 @@ namespace NuGet.Server.Core.Infrastructure
             return Path.Combine(
                 id,
                 normalizedVersion,
-                $"{id}.{normalizedVersion}.nupkg");
+                $"{id}.{normalizedVersion}{Constants.PackageExtension}");
         }
 
         private static string GetHashFileName(string id, string normalizedVersion)
@@ -205,7 +205,7 @@ namespace NuGet.Server.Core.Infrastructure
             return Path.Combine(
                 id,
                 normalizedVersion,
-                $"{id}.{normalizedVersion}{NuGet.Constants.HashFileExtension}");
+                $"{id}.{normalizedVersion}{Constants.HashFileExtension}");
         }
     }
 }

@@ -15,6 +15,9 @@ namespace NuGet.Server.Core
                 throw new ArgumentNullException(nameof(fullPackagePath));
             }
 
+            return new SharpPackage(fullPackagePath);
+
+
             var directoryName = Path.GetDirectoryName(fullPackagePath);
             var fileName = Path.GetFileName(fullPackagePath);
 

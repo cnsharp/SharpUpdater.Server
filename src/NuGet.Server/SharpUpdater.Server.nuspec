@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<package>
+  <metadata minClientVersion="2.6">
+    <id>SharpUpdater.Server</id>
+    <version>$version$</version>
+    <description>Web Application used to host a simple SharpUpdater feed</description>
+    <authors>CnSharp Studio</authors>
+    <owners>CnSharp Studio</owners>
+    <licenseUrl>https://raw.githubusercontent.com/cnsharp/SharpUpdater.Server/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/cnsharp/SharpUpdater.Server</projectUrl>
+    <copyright>© CnSharp Studio. All rights reserved.</copyright>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="net46" />
+      <frameworkAssembly assemblyName="System.ServiceModel.Web" targetFramework="net46" />
+      <frameworkAssembly assemblyName="System.ServiceModel.Activation" targetFramework="net46" />
+      <frameworkAssembly assemblyName="System.Data.Services" targetFramework="net46" />
+    </frameworkAssemblies>
+    <dependencies>
+      <group targetFramework="net46">
+        <dependency id="Microsoft.Web.Xdt" version="2.1.1" />
+        <dependency id="NuGet.Core" version="2.14.0" />
+        <!--<dependency id="SharpUpdater.Server.Core" version="$version$" />-->
+        <!--<dependency id="NuGet.Server.V2" version="3.1.2" />-->
+        <dependency id="Microsoft.AspNet.WebApi" version="5.2.3" />
+        <dependency id="Microsoft.AspNet.WebApi.OData" version="5.7.0" />
+        <dependency id="WebActivatorEx" version="2.2.0" />
+      </group>
+    </dependencies>
+    <references>
+      <group targetFramework="net46">
+        <reference id="SharpUpdater.Server.Core" version="$version$" />
+       <reference id="SharpUpdater.Server.V2" version="$version$" />
+      </group>
+    </references>
+  </metadata>
+  <files>
+    <!-- lib\net46 -->
+    <file src="bin\SharpUpdater.Server.dll" target="lib\net46" />
+    <file src="bin\SharpUpdater.Server.pdb" target="lib\net46" />
+    
+    <!-- content\net46 -->
+    <file src="App_Start\NuGetODataConfig.cs.pp" target="content\net46\App_Start" />
+    <file src="Packages\Readme.txt" target="content\net46\Packages" />
+    <file src="Default.aspx" target="content\net46" />
+    <file src="favicon.ico" target="content\net46" />
+    <file src="web.config.install.xdt" target="content\net46" />
+    <file src="bin\Web.config.transform" target="content\net46" />
+    
+    <!-- src -->
+    <file src="**\*.cs" target="src" />
+    <file src="..\CommonAssemblyInfo.cs" target="src\Properties" />
+  </files>
+</package>

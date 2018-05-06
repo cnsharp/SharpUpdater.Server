@@ -18,7 +18,7 @@ namespace $rootnamespace$.App_Start
 
             var config = GlobalConfiguration.Configuration;
 
-            NuGetV2WebApiEnabler.UseNuGetV2WebApiFeed(config, "NuGetDefault", "nuget", "PackagesOData");
+            NuGetV2WebApiEnabler.UseNuGetV2WebApiFeed(config, "SpDefault", "sp", "PackagesOData");
 
             config.Services.Replace(typeof(IExceptionLogger), new TraceExceptionLogger());
 
@@ -26,8 +26,8 @@ namespace $rootnamespace$.App_Start
             // Trace.AutoFlush = true;
 
             config.Routes.MapHttpRoute(
-                name: "NuGetDefault_ClearCache",
-                routeTemplate: "nuget/clear-cache",
+                name: "SpDefault_ClearCache",
+                routeTemplate: "sp/clear-cache",
                 defaults: new { controller = "PackagesOData", action = "ClearCache" },
                 constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Get) }
             );

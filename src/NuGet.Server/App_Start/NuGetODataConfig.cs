@@ -1,7 +1,9 @@
 ﻿// Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using System.Diagnostics;
 using System.Net.Http;
+using System.Web.Hosting;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
 using System.Web.Http.Routing;
@@ -28,16 +30,17 @@ namespace NuGet.Server.App_Start
 
         public static void Initialize(HttpConfiguration config, string controllerName)
         {
-            NuGetV2WebApiEnabler.UseNuGetV2WebApiFeed(config, "NuGetDefault", "nuget", controllerName);
+            config.UseNuGetV2WebApiFeed("SpDefault", Core.Constants.UrlSegment, controllerName);
 
             config.Services.Replace(typeof(IExceptionLogger), new TraceExceptionLogger());
+            //config.Services.Replace(typeof(ExpandedPackageRepository),new SharedPackageRepository());
 
-            // Trace.Listeners.Add(new TextWriterTraceListener(HostingEnvironment.MapPath("~/NuGet.Server.log")));
-            // Trace.AutoFlush = true;
+            Trace.Listeners.Add(new TextWriterTraceListener(HostingEnvironment.MapPath("~/NuGet.Server.log")));
+            Trace.AutoFlush = true;
 
             config.Routes.MapHttpRoute(
-                name: "NuGetDefault_ClearCache",
-                routeTemplate: "nuget/clear-cache",
+                name: "SpDefault_ClearCache",
+                routeTemplate: $"{Core.Constants.UrlSegment}/clear-cache",
                 defaults: new { controller = controllerName, action = nameof(PackagesODataController.ClearCache) },
                 constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Get) }
             );

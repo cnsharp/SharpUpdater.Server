@@ -25,7 +25,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <OutputType>Library</OutputType>
     <RootNamespace>NuGet.Server</RootNamespace>
-    <AssemblyName>NuGet.Server</AssemblyName>
+    <AssemblyName>SharpUpdater.Server</AssemblyName>
     <OutputPath>bin</OutputPath>
     <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
@@ -62,6 +62,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Services" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -134,9 +135,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="NuGet.Server.nuspec">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="App_Start\NuGetODataConfig.cs.pp" />
     <Content Include="web.config.install.xdt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -146,12 +144,21 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NuGet.Server.V2\NuGet.Server.V2.csproj">
+    <Content Include="SharpUpdater.Server.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NuGet.Server.Core\SharpUpdater.Server.Core.csproj">
+      <Project>{1fe62f82-927a-4437-91f1-1a965e51682b}</Project>
+      <Name>SharpUpdater.Server.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NuGet.Server.V2\SharpUpdater.Server.V2.csproj">
       <Project>{273e4575-4054-4578-9d14-8d4e640a365f}</Project>
-      <Name>NuGet.Server.V2</Name>
+      <Name>SharpUpdater.Server.V2</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(OS)' == 'Windows_NT'">
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>

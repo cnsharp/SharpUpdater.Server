@@ -114,18 +114,6 @@
     <Compile Include="TestablePackagesODataController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\NuGet.Server.Core\NuGet.Server.Core.csproj">
-      <Project>{1fe62f82-927a-4437-91f1-1a965e51682b}</Project>
-      <Name>NuGet.Server.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\NuGet.Server.V2\NuGet.Server.V2.csproj">
-      <Project>{273E4575-4054-4578-9D14-8D4E640A365F}</Project>
-      <Name>NuGet.Server.V2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\src\NuGet.Server\NuGet.Server.csproj">
-      <Project>{793B20A9-E263-4B54-BB31-305B602087CE}</Project>
-      <Name>NuGet.Server</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NuGet.Server.Core.Tests\NuGet.Server.Core.Tests.csproj">
       <Project>{FDE8DDFB-E01B-47FD-9945-0A151F3AE589}</Project>
       <Name>NuGet.Server.Core.Tests</Name>

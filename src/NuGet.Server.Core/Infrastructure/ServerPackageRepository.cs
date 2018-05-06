@@ -62,7 +62,7 @@ namespace NuGet.Server.Core.Infrastructure
             _serverPackageCache = InitializeServerPackageCache();
             _serverPackageStore = new ServerPackageStore(
                 _fileSystem,
-                new ExpandedPackageRepository(_fileSystem, hashProvider),
+                new SharpExpandedPackageRepository(_fileSystem, hashProvider),
                 _logger);
         }
 
@@ -273,7 +273,7 @@ namespace NuGet.Server.Core.Infrastructure
             {
                 var serverPackages = new HashSet<ServerPackage>(IdAndVersionEqualityComparer.Instance);
 
-                foreach (var packageFile in _fileSystem.GetFiles(_fileSystem.Root, "*.nupkg", recursive: false))
+                foreach (var packageFile in _fileSystem.GetFiles(_fileSystem.Root, Constants.PackageFilter, recursive: false))
                 {
                     try
                     {
@@ -620,7 +620,7 @@ namespace NuGet.Server.Core.Infrastructure
 
                 // 1) If a .nupkg is dropped in the root, add it as a package
                 if (string.Equals(changedDirectory, _watchDirectory, StringComparison.OrdinalIgnoreCase)
-                    && string.Equals(Path.GetExtension(e.Name), ".nupkg", StringComparison.OrdinalIgnoreCase))
+                    && string.Equals(Path.GetExtension(e.Name), Constants.PackageFilter, StringComparison.OrdinalIgnoreCase))
                 {
                     // When a package is dropped into the server packages root folder, add it to the repository.
                     await AddPackagesFromDropFolderAsync(CancellationToken.None);

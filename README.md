@@ -1,14 +1,38 @@
-# NuGet.Server
+# SharpUpdater.Server
 
-The home of the NuGet.server package, a lightweight standalone NuGet server
+The home of the SharpUpdater.Server package, a lightweight standalone SharpUpdater server.
 
-# Open Source Code of Conduct
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Latest version based on [NuGet.Server](https://github.com/NuGet/NuGet.Server) 3.1.2.
 
-## Feedback
+### Client Tools
+##### Visual Studio extension 
+* [VSIX Install](https://visualstudiogallery.msdn.microsoft.com/7235fee1-a830-466b-b7be-022dc6f98aa9)
+* [Source](https://github.com/cnsharp/SharpUpdater/tree/master/src/VSIX/PackingTool)
 
-If you're having trouble with the NuGet.org Website or NuGet.Server, file a bug on the [NuGet Gallery Issue Tracker](https://github.com/nuget/NuGetGallery/issues). 
+##### Updater.exe
+* [Source](https://github.com/cnsharp/SharpUpdater/tree/master/src/Client/SharpUpdater)
 
-If you're having trouble with the NuGet client tools (the Visual Studio extension, NuGet.exe command line tool, etc.), file a bug on [NuGet Home](https://github.com/nuget/home/issues).
+### Files changed
 
-Check out the [contributing](http://docs.nuget.org/contribute) page to see the best places to log issues and start discussions. The [NuGet Home](https://github.com/NuGet/Home) repo provides an overview of the different NuGet projects available.
+* package file extension: 
+
+  * .nupkg -> .sp
+  * NuGet.Server\App_Start\NuGetODataConfig.cs
+  * NuGet.Server\Core\Helpers.cs
+  * NuGet.Server\Default.aspx
+  * NuGet.Server\Web.config
+  * NuGet.Server.Core\Core\Constants.cs
+
+* extarcted from NuGet.Core
+
+  * NuGet.Server.Core\Core\MemoryCache.cs
+  * NuGet.Server.Core\Core\UriUtility.cs
+  * NuGet.Server.Core\Core\ZipPackageAssemblyReference.cs
+  * NuGet.Server.Core\Core\ZipPackageFile.cs
+  * NuGet.Server.Core\Infrastructure\FileSystemExtensions.cs
+
+* expanded
+
+  * NuGet.Server.Core\Core\ManifestExtensions.cs
+  * NuGet.Server.Core\Core\SharpPackage.cs
+  * NuGet.Server.Core\Infrastructure\SharpExpandedPackageRepository.cs

@@ -100,12 +100,6 @@
     <Compile Include="TestData.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\NuGet.Server.Core\NuGet.Server.Core.csproj">
-      <Project>{1fe62f82-927a-4437-91f1-1a965e51682b}</Project>
-      <Name>NuGet.Server.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>

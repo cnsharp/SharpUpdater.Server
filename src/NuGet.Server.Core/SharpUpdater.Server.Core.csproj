@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FE62F82-927A-4437-91F1-1A965E51682B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NuGet.Server.Core</RootNamespace>
+    <AssemblyName>SharpUpdater.Server.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.XmlTransform">
+      <HintPath>..\..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.14.0.832, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NuGet.Core.2.14.0\lib\net40-Client\NuGet.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SharpUpdater.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c6793ac18c16801e, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpUpdater.Core.4.0.0.0\lib\net35\SharpUpdater.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\HashCodeCombiner.cs">
+      <Link>HashCodeCombiner.cs</Link>
+    </Compile>
+    <Compile Include="Core\Constants.cs" />
+    <Compile Include="Core\FrameworkNameExtensions.cs" />
+    <Compile Include="Core\ManifestExtensions.cs" />
+    <Compile Include="Core\MemoryCache.cs" />
+    <Compile Include="Core\NullFileSystem.cs" />
+    <Compile Include="Core\PackageExtensions.cs" />
+    <Compile Include="Core\PackageFactory.cs" />
+    <Compile Include="Core\SharpPackage.cs" />
+    <Compile Include="Core\ZipPackageAssemblyReference.cs" />
+    <Compile Include="Core\ZipPackageFile.cs" />
+    <Compile Include="DataServices\IgnoreCaseForPackageIdInterceptor.cs" />
+    <Compile Include="DataServices\NormalizeVersionInterceptor.cs" />
+    <Compile Include="DataServices\ODataPackage.cs" />
+    <Compile Include="DataServices\PackageExtensions.cs" />
+    <Compile Include="DataServices\QueryableExtensions.cs" />
+    <Compile Include="DataServices\QueryTranslator.cs" />
+    <Compile Include="DataServices\QueryTranslatorProvider.cs" />
+    <Compile Include="Infrastructure\ApiKeyPackageAuthenticationService.cs" />
+    <Compile Include="Infrastructure\ClientCompatibility.cs" />
+    <Compile Include="Infrastructure\ClientCompatibilityFactory.cs" />
+    <Compile Include="Infrastructure\DefaultSettingsProvider.cs" />
+    <Compile Include="Infrastructure\FileSystemExtensions.cs" />
+    <Compile Include="Infrastructure\SerializedServerPackages.cs" />
+    <Compile Include="Infrastructure\ServerPackageStore.cs" />
+    <Compile Include="Infrastructure\IServerPackageStore.cs" />
+    <Compile Include="Infrastructure\IPackageAuthenticationService.cs" />
+    <Compile Include="Infrastructure\IPackagesSerializer.cs" />
+    <Compile Include="Infrastructure\IServerPackage.cs" />
+    <Compile Include="Infrastructure\IServerPackageRepository.cs" />
+    <Compile Include="Infrastructure\IServerPackageCache.cs" />
+    <Compile Include="Infrastructure\ISettingsProvider.cs" />
+    <Compile Include="Infrastructure\JsonNetPackagesSerializer.cs" />
+    <Compile Include="Infrastructure\PackageDerivedData.cs" />
+    <Compile Include="Infrastructure\SemanticVersionJsonConverter.cs" />
+    <Compile Include="Infrastructure\ServerPackage.cs" />
+    <Compile Include="Infrastructure\IdAndVersionEqualityComparer.cs" />
+    <Compile Include="Infrastructure\ServerPackageExtensions.cs" />
+    <Compile Include="Infrastructure\ServerPackageRepository.cs" />
+    <Compile Include="Infrastructure\ServerPackageRepositoryExtensions.cs" />
+    <Compile Include="Infrastructure\ServerPackageCache.cs" />
+    <Compile Include="Infrastructure\SharpExpandedPackageRepository.cs" />
+    <Compile Include="Logging\ConsoleLogger.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\LogLevel.cs" />
+    <Compile Include="Logging\TraceLogger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.*.cs" />
+    <Compile Include="Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="SharpUpdater.Server.Core.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\build\sign.targets" Condition="Exists('..\..\build\sign.targets')" />
+</Project>

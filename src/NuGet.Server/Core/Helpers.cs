@@ -8,12 +8,12 @@ namespace NuGet.Server
     {
         public static string GetRepositoryUrl(Uri currentUrl, string applicationPath)
         {
-            return GetBaseUrl(currentUrl, applicationPath) + "nuget";
+            return GetBaseUrl(currentUrl, applicationPath) + Core.Constants.UrlSegment;
         }
 
         public static string GetPushUrl(Uri currentUrl, string applicationPath)
         {
-            return GetBaseUrl(currentUrl, applicationPath) + "nuget";
+            return GetBaseUrl(currentUrl, applicationPath) + Core.Constants.UrlSegment;
         }
 
         public static string GetBaseUrl(Uri currentUrl, string applicationPath)

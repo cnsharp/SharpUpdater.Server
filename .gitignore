@@ -217,3 +217,7 @@ tools
 Results.*.xml
 !**/TestData/*.nupkg
 .vs
+
+#SharpUpdater Packages
+*.sp
+/src/NuGet.Server/Packages/
