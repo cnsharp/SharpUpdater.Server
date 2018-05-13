@@ -30,10 +30,10 @@ namespace NuGet.Server
 
             _settingsProvider = new WebConfigSettingsProvider(settings);
 
-            _packageRepository = new ServerPackageRepository(packagePath, _hashProvider, _settingsProvider, new TraceLogger());
+            _packageRepository =
+                new ServerPackageRepository(packagePath, _hashProvider, _settingsProvider, new TraceLogger());
 
             _packageAuthenticationService = new PackageAuthenticationService(settings);
-
         }
 
         public object Resolve(Type type)

@@ -9,7 +9,7 @@ namespace NuGet.Server.Core
 {
     /// <summary>
     /// A file system implementation that persists nothing. This is intended to be used with
-    /// <see cref="OptimizedZipPackage"/> so that package files are never actually extracted anywhere on disk.
+    /// <see cref="Core.OptimizedZipPackage"/> so that package files are never actually extracted anywhere on disk.
     /// </summary>
     public class NullFileSystem : IFileSystem
     {

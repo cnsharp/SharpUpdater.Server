@@ -10,13 +10,9 @@ namespace NuGet.Server.Core
     {
         public static IPackage Open(string fullPackagePath)
         {
-            if (string.IsNullOrEmpty(fullPackagePath))
-            {
-                throw new ArgumentNullException(nameof(fullPackagePath));
-            }
+            if (string.IsNullOrEmpty(fullPackagePath)) throw new ArgumentNullException(nameof(fullPackagePath));
 
-            return new SharpPackage(fullPackagePath);
-
+            //return new SharpPackage(fullPackagePath);
 
             var directoryName = Path.GetDirectoryName(fullPackagePath);
             var fileName = Path.GetFileName(fullPackagePath);

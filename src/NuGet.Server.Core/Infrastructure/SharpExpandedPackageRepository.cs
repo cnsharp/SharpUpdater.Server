@@ -55,7 +55,7 @@ namespace NuGet.Server.Core.Infrastructure
 
             using (var stream = package.GetStream())
             {
-                using (var manifestStream = SharpPackage.GetManifestStream(stream))
+                using (var manifestStream = stream.GetManifestStream())
                 {
                     var manifestPath = Path.Combine(packagePath, package.Id + CnSharp.Updater.Manifest.ManifestExt);
                     _fileSystem.AddFile(manifestPath, manifestStream);
@@ -72,13 +72,13 @@ namespace NuGet.Server.Core.Infrastructure
             }
         }
 
-        public bool Exists(string packageId, SemanticVersion version)
+        public new bool Exists(string packageId, SemanticVersion version)
         {
-            var hashFilePath = Path.ChangeExtension(GetPackagePath(packageId, version), NuGet.Constants.HashFileExtension);
+            var hashFilePath = Path.ChangeExtension(GetPackagePath(packageId, version),Constants.HashFileExtension);
             return _fileSystem.FileExists(hashFilePath);
         }
 
-        public IPackage FindPackage(string packageId, SemanticVersion version)
+        public new IPackage FindPackage(string packageId, SemanticVersion version)
         {
             if (!Exists(packageId, version))
             {
@@ -88,7 +88,7 @@ namespace NuGet.Server.Core.Infrastructure
             return GetPackageInternal(packageId, version);
         }
 
-        public IEnumerable<IPackage> FindPackagesById(string packageId)
+        public new IEnumerable<IPackage> FindPackagesById(string packageId)
         {
             foreach (var versionDirectory in _fileSystem.GetDirectoriesSafe(packageId))
             {

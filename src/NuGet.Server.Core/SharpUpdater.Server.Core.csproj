@@ -66,6 +66,7 @@
     <Compile Include="Core\ManifestExtensions.cs" />
     <Compile Include="Core\MemoryCache.cs" />
     <Compile Include="Core\NullFileSystem.cs" />
+    <Compile Include="Core\OptimizedZipPackage.cs" />
     <Compile Include="Core\PackageExtensions.cs" />
     <Compile Include="Core\PackageFactory.cs" />
     <Compile Include="Core\SharpPackage.cs" />

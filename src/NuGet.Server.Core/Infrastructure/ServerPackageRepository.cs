@@ -316,7 +316,7 @@ namespace NuGet.Server.Core.Infrastructure
             }
             finally
             {
-                OptimizedZipPackage.PurgeCache();
+                Core.OptimizedZipPackage.PurgeCache();
             }
         }
 
@@ -515,7 +515,7 @@ namespace NuGet.Server.Core.Infrastructure
         {
             using (await LockAndSuppressFileSystemWatcherAsync(token))
             {
-                OptimizedZipPackage.PurgeCache();
+                Core.OptimizedZipPackage.PurgeCache();
 
                 _serverPackageCache.Clear();
                 _serverPackageCache.Persist();

@@ -322,7 +322,7 @@ namespace NuGet.Server.V2.Controllers
 
             responseMessage.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue(DispositionTypeNames.Attachment)
             {
-                FileName = string.Format("{0}.{1}{2}", requestedPackage.Id, requestedPackage.Version, NuGet.Constants.PackageExtension),
+                FileName = string.Format("{0}.{1}{2}", requestedPackage.Id, requestedPackage.Version, Core.Constants.PackageExtension),
                 Size = requestedPackage != null ? (long?)requestedPackage.PackageSize : null,
                 ModificationDate = responseMessage.Content.Headers.LastModified,
             };

@@ -1,5 +1,6 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information. 
+
 using System;
 using System.Configuration;
 using System.Web.Hosting;
@@ -12,10 +13,7 @@ namespace NuGet.Server.Infrastructure
 
         public static string PackagePhysicalPath
         {
-            get
-            {
-                return _packagePhysicalPath.Value;
-            }
+            get { return _packagePhysicalPath.Value; }
         }
 
         private static string ResolvePackagePath()

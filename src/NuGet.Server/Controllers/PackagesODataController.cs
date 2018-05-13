@@ -20,7 +20,7 @@ namespace NuGet.Server.DataServices
 
         protected PackagesODataController(IServiceResolver serviceResolver)
             : base(serviceResolver.Resolve<IServerPackageRepository>(),
-                   serviceResolver.Resolve<IPackageAuthenticationService>())
+                serviceResolver.Resolve<IPackageAuthenticationService>())
         {
             _maxPageSize = 100;
         }
@@ -36,7 +36,8 @@ namespace NuGet.Server.DataServices
             }
             else
             {
-                return CreateStringResponse(HttpStatusCode.Forbidden, "Clear cache is only supported for local requests.");
+                return CreateStringResponse(HttpStatusCode.Forbidden,
+                    "Clear cache is only supported for local requests.");
             }
         }
     }

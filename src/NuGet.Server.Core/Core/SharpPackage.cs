@@ -9,8 +9,6 @@ using System.Text;
 using System.Xml;
 using CnSharp.Updater.Packaging;
 using CnSharp.Updater.Util;
-using NuGet;
-using NuGet.Resources;
 
 namespace NuGet.Server.Core
 {
@@ -26,6 +24,10 @@ namespace NuGet.Server.Core
         public override Stream GetStream()
         {
             return _streamFactory();
+        }
+
+        protected SharpPackage()
+        {
         }
 
         public SharpPackage(string filePath)
@@ -60,7 +62,7 @@ namespace NuGet.Server.Core
             _streamFactory = stream.ToStreamFactory();
             using (stream = _streamFactory())
             {
-                EnsureManifest(() => GetManifestStream(stream));
+                EnsureManifest(() => stream.GetManifestStream());
             }
         }
 
@@ -74,7 +76,7 @@ namespace NuGet.Server.Core
             _streamFactory = () => File.OpenRead(filePath);
             using (var stream = _streamFactory())
             {
-                EnsureManifest(() => GetManifestStream(stream));
+                EnsureManifest(() => stream.GetManifestStream());
             }
         }
 
@@ -88,48 +90,23 @@ namespace NuGet.Server.Core
             _streamFactory = streamFactory;
             using (var stream = _streamFactory())
             {
-                EnsureManifest(() => GetManifestStream(stream));
+                EnsureManifest(() => stream.GetManifestStream());
             }
         }
 
-        public static Stream GetManifestStream(Stream packageStream) 
-        {
-            Package package = Package.Open(packageStream);
-
-            return GetManifestStream(package);
-        }
-
-        public static Stream GetManifestStream(Package package)
-        {
-
-            PackageRelationship relationshipType = package.GetRelationshipsByType(CnSharp.Updater.Packaging.PackageBuilder.PackageRelationshipNamespace + CnSharp.Updater.Packaging.PackageBuilder.ManifestRelationType).SingleOrDefault();
-
-            if (relationshipType == null)
-            {
-                throw new InvalidOperationException(NuGetResources.PackageDoesNotContainManifest);
-            }
-
-            PackagePart manifestPart = package.GetPart(relationshipType.TargetUri);
-
-            if (manifestPart == null)
-            {
-                throw new InvalidOperationException(NuGetResources.PackageDoesNotContainManifest);
-            }
-
-            return manifestPart.GetStream();
-        }
+   
 
 
-        private void EnsureManifest(Func<Stream> manifestStreamFactory)
+        protected void EnsureManifest(Func<Stream> manifestStreamFactory)
         {
             using (Stream manifestStream = manifestStreamFactory())
             {
-                ReadMyManifest(manifestStream);
+                ReadManifest(manifestStream);
                 //todo:validate manifest
             }
         }
 
-        protected void ReadMyManifest(Stream manifestStream)
+        protected new void ReadManifest(Stream manifestStream)
         {
             //Manifest manifest = Manifest.ReadFrom(manifestStream, validateSchema: false);
 

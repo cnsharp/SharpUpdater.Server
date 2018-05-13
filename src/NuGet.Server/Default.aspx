@@ -12,38 +12,46 @@
     </style>
 </head>
 <body>
-    <div>
-        <h2>You are running SharpUpdater.Server v<%= typeof(NuGetODataConfig).Assembly.GetName().Version %></h2>
-        <p>
-            Click <a href="<%= VirtualPathUtility.ToAbsolute("~/sp/Packages") %>">here</a> to view your packages.
-        </p>
-        <fieldset style="width:800px">
-            <legend><strong>Repository URLs</strong></legend>
-            In the package manager settings, add the following URL to the list of 
-            Package Sources:
-            <blockquote>
-                <strong><%= Helpers.GetRepositoryUrl(Request.Url, Request.ApplicationPath) %></strong>
-            </blockquote>
-            <% if (string.IsNullOrEmpty(ConfigurationManager.AppSettings["apiKey"])) { %>
+<div>
+    <h2>You are running SharpUpdater.Server v<%= typeof(NuGetODataConfig).Assembly.GetName().Version %></h2>
+    <p>
+        Click <a href="<%= VirtualPathUtility.ToAbsolute("~/sp/Packages") %>">here</a> to view your packages.
+    </p>
+    <fieldset style="width: 800px">
+        <legend>
+            <strong>Repository URLs</strong>
+        </legend>
+        In the package manager settings, add the following URL to the list of
+        Package Sources:
+        <blockquote>
+            <strong><%= Helpers.GetRepositoryUrl(Request.Url, Request.ApplicationPath) %></strong>
+        </blockquote>
+        <% if (string.IsNullOrEmpty(ConfigurationManager.AppSettings["apiKey"]))
+           { %>
             To enable pushing packages to this feed using the <a href="https://www.nuget.org/downloads">NuGet command line tool</a> (nuget.exe), set the <code>apiKey</code> appSetting in web.config.
-            <% } else { %>
+        <% }
+           else
+           { %>
             Use the command below to push packages to this feed using the <a href="https://www.nuget.org/downloads">NuGet command line tool</a> (nuget.exe).
             <blockquote>
                 <strong>nuget.exe push {package file} {apikey} -Source <%= Helpers.GetPushUrl(Request.Url, Request.ApplicationPath) %></strong>
             </blockquote>
-            <% } %> 
-        </fieldset>
+        <% } %>
+    </fieldset>
 
-        <% if (Request.IsLocal) { %>
-        <fieldset style="width:800px">
-            <legend><strong>Adding packages</strong></legend>
+    <% if (Request.IsLocal)
+       { %>
+        <fieldset style="width: 800px">
+            <legend>
+                <strong>Adding packages</strong>
+            </legend>
 
             To add packages to the feed put package files (.sp files) in the folder
             <code><% = PackageUtility.PackagePhysicalPath %></code><br/><br/>
 
             Click <a href="<%= VirtualPathUtility.ToAbsolute("~/sp/clear-cache") %>">here</a> to clear the package cache.
         </fieldset>
-        <% } %>
-    </div>
+    <% } %>
+</div>
 </body>
 </html>

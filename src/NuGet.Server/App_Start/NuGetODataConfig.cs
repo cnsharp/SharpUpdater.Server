@@ -41,8 +41,8 @@ namespace NuGet.Server.App_Start
             config.Routes.MapHttpRoute(
                 name: "SpDefault_ClearCache",
                 routeTemplate: $"{Core.Constants.UrlSegment}/clear-cache",
-                defaults: new { controller = controllerName, action = nameof(PackagesODataController.ClearCache) },
-                constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Get) }
+                defaults: new {controller = controllerName, action = nameof(PackagesODataController.ClearCache)},
+                constraints: new {httpMethod = new HttpMethodConstraint(HttpMethod.Get)}
             );
         }
     }
