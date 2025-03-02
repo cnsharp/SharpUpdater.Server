@@ -149,6 +149,9 @@ packages/*
 # (and the packages folder if the line above has been uncommented)
 !packages/build/
 
+# SharpUpdater packages
+*.sp
+
 # Windows Azure Build Output
 csx/
 *.build.csdef
@@ -199,6 +202,8 @@ FakesAssemblies/
 src/NuGet.Server/Packages/**/*.nupkg
 src/NuGet.Server/Packages/**/*.sha512
 src/NuGet.Server/Packages/**/*.nuspec
+src/NuGet.Server/Packages/**/*.sp
+src/NuGet.Server/Packages/**/*.manifest
 src/NuGet.Server/Server.Publish.xml
 DebugConstants.cs
 *.log

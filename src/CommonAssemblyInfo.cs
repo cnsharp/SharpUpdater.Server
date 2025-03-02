@@ -1,15 +1,14 @@
-// Copyright (c) .NET Foundation. All rights reserved.
-// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information. 
-
 using System.Reflection;
 using System.Resources;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyCompany(".NET Foundation")]
-[assembly: AssemblyProduct("NuGet")]
-[assembly: AssemblyCopyright("\x00a9 .NET Foundation. All rights reserved.")]
+[assembly: AssemblyCompany("CnSharp Studio")]
+[assembly: AssemblyProduct("SharpUpdater")]
+[assembly: AssemblyCopyright("\x00a9 CnSharp Studio. All rights reserved.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyTrademark("")]
+[assembly: AssemblyFileVersion("3.4.2.0")]
+[assembly: AssemblyVersion("3.4.2.0")]
 
 [assembly: ComVisible(false)]
 

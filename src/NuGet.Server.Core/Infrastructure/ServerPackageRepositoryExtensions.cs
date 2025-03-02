@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.Versioning;
 using System.Threading;
 using System.Threading.Tasks;
+using CnSharp.Updater.Server;
 
 namespace NuGet.Server.Core.Infrastructure
 {

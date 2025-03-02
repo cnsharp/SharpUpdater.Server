@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<package>
+  <metadata minClientVersion="2.6">
+    <id>SharpUpdater.Server</id>
+    <iconUrl>https://github.com/cnsharp/cnsharp.github.io/blob/master/assets/cnsharp/SharpUpdater-logo256x256.png?raw=true</iconUrl>
+    <version>3.4.2</version>
+    <description>Web Application used to host a simple SharpUpdater feed</description>
+    <authors>Bob Chin</authors>
+    <owners>CnSharp Studio</owners>
+    <license type="expression">Apache-2.0</license>
+    <projectUrl>https://github.com/cnsharp/SharpUpdater.Server</projectUrl>
+    <copyright>© CnSharp Studio. All rights reserved.</copyright>
+    <repository type="git" url="https://github.com/cnsharp/SharpUpdater.Server" />
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="net462" />
+      <frameworkAssembly assemblyName="System.ServiceModel.Web" targetFramework="net462" />
+      <frameworkAssembly assemblyName="System.ServiceModel.Activation" targetFramework="net462" />
+      <frameworkAssembly assemblyName="System.Data.Services" targetFramework="net462" />
+    </frameworkAssemblies>
+    <dependencies>
+      <group targetFramework="net462">
+        <dependency id="Microsoft.Web.Xdt" version="2.1.1" />
+        <dependency id="NuGet.Core" version="2.14.0" />
+        <dependency id="SharpUpdater.Core" version="5.0.0" />
+        <dependency id="Microsoft.AspNet.WebApi" version="5.2.3" />
+        <dependency id="Microsoft.AspNet.WebApi.OData" version="5.7.0" />
+        <dependency id="WebActivatorEx" version="2.2.0" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- lib\net462 -->
+    <file src="bin\SharpUpdater.Server.dll" target="lib\net462" />
+    <file src="bin\SharpUpdater.Server.pdb" target="lib\net462" />
+    <file src="bin\SharpUpdater.Server.Core.dll" target="lib\net462" />
+    <file src="bin\SharpUpdater.Server.Core.pdb" target="lib\net462" />
+    <file src="bin\SharpUpdater.Server.V2.dll" target="lib\net462" />
+    <file src="bin\SharpUpdater.Server.V2.pdb" target="lib\net462" />
+    
+    <!-- content\net462 -->
+    <file src="App_Start\SharpUpdaterODataConfig.cs.pp" target="content\net462\App_Start" />
+    <file src="Packages\Readme.txt" target="content\net462\Packages" />
+    <file src="Default.aspx" target="content\net462" />
+    <file src="favicon.ico" target="content\net462" />
+    <file src="web.config.install.xdt" target="content\net462" />
+    <file src="bin\Web.config.transform" target="content\net462" />
+    
+    <!-- src -->
+    <!--
+    <file src="**\*.cs" target="src" />
+    <file src="..\CommonAssemblyInfo.cs" target="src\Properties" />
+    -->
+  </files>
+</package>
