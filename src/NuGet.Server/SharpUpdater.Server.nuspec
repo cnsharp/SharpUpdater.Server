@@ -25,6 +25,10 @@
         <dependency id="Microsoft.AspNet.WebApi" version="5.2.3" />
         <dependency id="Microsoft.AspNet.WebApi.OData" version="5.7.0" />
         <dependency id="WebActivatorEx" version="2.2.0" />
+        <dependency id="Microsoft.Data.Edm" version="5.8.5" />
+        <dependency id="Microsoft.Data.OData" version="5.8.5" />
+        <dependency id="System.Spatial" version="5.8.5" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" />
       </group>
     </dependencies>
   </metadata>
