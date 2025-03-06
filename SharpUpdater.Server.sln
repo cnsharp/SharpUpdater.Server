@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		CodeAnalysisDictionary.xml = CodeAnalysisDictionary.xml
 		NuGet.config = NuGet.config
 		NuGet.ruleset = NuGet.ruleset
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0F277539-E9D7-4A06-A731-D525D9AFCE54}"
