@@ -1,4 +1,6 @@
-﻿using System.Net.Http;
+﻿using System.Diagnostics;
+using System.Net.Http;
+using System.Web.Hosting;
 using System.Web.Http;
 using System.Web.Http.ExceptionHandling;
 using System.Web.Http.Routing;
@@ -35,7 +37,7 @@ namespace CnSharp.Updater.Server.App_Start
 
             config.Services.Replace(typeof(IExceptionLogger), new TraceExceptionLogger());
 
-            // Trace.Listeners.Add(new TextWriterTraceListener(HostingEnvironment.MapPath("~/NuGet.Server.log")));
+            // Trace.Listeners.Add(new TextWriterTraceListener(HostingEnvironment.MapPath("~/SharpUpdater.Server.log")));
             // Trace.AutoFlush = true;
 
             config.Routes.MapHttpRoute(
